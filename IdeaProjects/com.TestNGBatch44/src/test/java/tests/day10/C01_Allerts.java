@@ -27,7 +27,7 @@ public class C01_Allerts {
         driver.get("https://the-internet.herokuapp.com/javascript_alerts");
     }
 
-    @Test
+    @org.junit.Test
     public void acceptAlertTesti() throws InterruptedException {
         //● Bir metod olusturun: acceptAlert
         //		○ 1. butona tıklayın, uyarıdaki OK butonuna tıklayın ve result mesajının
