@@ -1,10 +1,11 @@
 package tests.day08;
 
 import com.google.common.annotations.VisibleForTesting;
+
 import org.testng.annotations.Test;
 
 public class C01_Priority {
-    @Test(priority = 9)
+    @Test
     public void youtubeTesti(){
         System.out.println("Youtube testi calisti");
 

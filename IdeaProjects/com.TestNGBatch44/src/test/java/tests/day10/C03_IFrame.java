@@ -1,18 +1,22 @@
 package tests.day10;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
+import java.awt.*;
 import java.time.Duration;
 
 public class C03_IFrame {
 
     WebDriver driver;
+    private Label istenenYaziElementi;
+
     @BeforeClass
     public void setUp(){
         WebDriverManager.chromedriver().setup();
