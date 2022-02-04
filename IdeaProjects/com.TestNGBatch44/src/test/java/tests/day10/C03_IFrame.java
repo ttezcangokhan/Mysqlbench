@@ -8,11 +8,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+import utilities.TestBase;
 
 import java.awt.*;
 import java.time.Duration;
 
-public class C03_IFrame {
+public class C03_IFrame extends TestBase {
 
     WebDriver driver;
     private Label istenenYaziElementi;
@@ -30,9 +31,9 @@ public class C03_IFrame {
         driver.get("https://the-internet.herokuapp.com/basic_auth");
         WebElement IstenilenYaziElementi=driver.findElement(By.tagName("h3"));
         SoftAssert sortAssert=new SoftAssert();
-        softAssert.assertTrue(IstenenYaziEleenti.isEnabled(),"");
+        sortAssert.assertTrue(IstenilenYaziElementi.isEnabled(),"");
         System.out.println(istenenYaziElementi.getText());
-        WebElement iFrame=driver.findElement(By.ByTagName("iframe"));
+        WebElement iFrame=driver.findElement(By.tagName("iframe"));
         driver.switchTo().frame(iFrame);
 
         WebElement textBox=driver.findElement(By.tagName("p"));
