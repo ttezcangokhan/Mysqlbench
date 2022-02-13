@@ -2,6 +2,7 @@ package tests.day17;
 
 import org.junit.Test;
 import org.testng.Assert;
+import pages.HotelMyCampPage;
 import utilities.Driver;
 
 public class C01_HotelMyCampNegativeLogin {

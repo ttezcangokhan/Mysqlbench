@@ -1,6 +1,7 @@
 package tests.day16;
 
 import org.testng.annotations.Test;
+import pages.HotelMyCampPage;
 import utilities.Driver;
 
 public class C04_HotelMyCampPositiveLogin {

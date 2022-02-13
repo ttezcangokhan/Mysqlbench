@@ -1,7 +1,6 @@
 package tests.day17;
 
 import org.junit.Test;
-import org.testng.annotations.Test;
 import utilities.ConfigReader;
 import utilities.Driver;
 
