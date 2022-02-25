@@ -1,6 +1,5 @@
 package tests.day18;
 
-import org.junit.Test;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pages.HMCWebTablePage;
@@ -60,7 +59,7 @@ public class C02_Webtables {
     }
 
 
-    @Test(dependsOnMethods = "loginT")
+    @Test (dependsOnMethods = "loginT")
     public void printRows(){
         //● printRows( ) metodu oluşturun //tr
         //			○ table body’sinde bulunan toplam satir(row) sayısını bulun.

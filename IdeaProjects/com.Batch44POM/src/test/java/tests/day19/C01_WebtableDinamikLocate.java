@@ -1,6 +1,5 @@
 package tests.day19;
 
-import org.junit.Test;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pages.HMCWebTablePage;
