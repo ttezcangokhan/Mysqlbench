@@ -15,8 +15,20 @@ public class GetRequest01 {
        // response.prettyPrint();
         System.out.println("Status Code:" +response.statusCode());
         System.out.println("Content Type:" +response.contentType());
+        System.out.println("Status Line: " + response.statusLine());
         System.out.println("TestZamani:" +response.time());
+
         Assert.assertEquals(200,response.statusCode());
+        Assert.assertEquals("application/json; charset=utf-8",response.contentType());
+        Assert.assertEquals("HTTP/1.1 200 OK",response.statusLine());
+
+        response
+                .then()
+                .assertThat()
+                .statusCode(200)
+                .contentType("application/json; charset=utf-8")
+                .statusLine("HTTP/1.1 200 OK");
+
 
 
     }
