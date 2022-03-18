@@ -1,4 +1,7 @@
 package get_http_request.day13;
 
-public class PostRequestPojo02 {
+import base_url.HerOkuAppBaseUrl;
+
+public class PostRequestPojo02 extends HerOkuAppBaseUrl {
+
 }
