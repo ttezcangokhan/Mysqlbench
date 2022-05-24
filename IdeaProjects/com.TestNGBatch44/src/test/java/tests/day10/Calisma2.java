@@ -53,6 +53,13 @@ public class Calisma2 {
         softAssert.assertEquals(driver.getTitle(),"The Internet","ilk sayfanin title i beklenen gibi degildir");
 
 
+        driver.switchTo().window(windowHandleDegeri2);
+        softAssert.assertEquals(driver.getTitle(),"New Window","yeni sayfa title i istenenden farkli");
+        WebElement ikinciSayfadakiYaziElementi=driver.findElement(By.tagName("h3"));
+        softAssert.assertEquals(ikinciSayfadakiYaziElementi.getText(),"New Window","ikinci sayfadaki yazi istneneden fakrli");
+
+        driver.switchTo().window(windowHandleDeegri1);
+        softAssert.assertEquals(driver.getTitle(),"The Internet","ilk sayfanin title i beklenen gibi degildir");
 
 
 
