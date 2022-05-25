@@ -15,6 +15,14 @@ import java.util.Set;
 
 public class Calisma2 {
 
+    @BeforeClass
+    public void setUp(){
+        WebDriverManager.chromedriver().setup();
+        driver=new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+    }
+
     WebDriver driver;
     @BeforeClass
     public void setUp() {
