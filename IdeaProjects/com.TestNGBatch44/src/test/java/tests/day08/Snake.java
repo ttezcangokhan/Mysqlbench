@@ -6,29 +6,27 @@ import javax.swing.JFrame;
 
     public class Snake extends JFrame {
 
-        public Snake() {
+       package day01;
 
-            initUI();
-        }
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
-        private void initUI() {
+        public class C01_IlkClass {
+            public static void main(String[] args) throws InterruptedException {
+                System.setProperty("webdriver.chrome.driver","src/driver/chromedriver.exe");
+                WebDriver driver= new ChromeDriver();
+                // biz driver objesi olusturdugumuzda bos bir chrome browser acilir
 
-            add(new day08.Board());
+                driver.get("https://www.ebay.com");
+                // driver.get method'u driver'a gidecegi web adresini girmemizi saglar
 
-            setResizable(false);
-            pack();
+                Thread.sleep(3000);
 
-            setTitle("Deniz Kayranin Snegi");
-            setLocationRelativeTo(null);
-            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        }
+                driver.close();
+                // driver'i kapatir
 
-        public static void main(String[] args) {
 
-            EventQueue.invokeLater(() -> {
-                JFrame ex = new Snake();
-                ex.setVisible(true);
-            });
+            }
         }
     }
 
