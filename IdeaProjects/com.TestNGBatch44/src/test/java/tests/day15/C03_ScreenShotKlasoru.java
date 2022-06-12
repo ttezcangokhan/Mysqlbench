@@ -24,7 +24,7 @@ public class C03_ScreenShotKlasoru extends TestBase {
         tumSayfaScreenshot();
     }
 
-    private void tumSayfaScreenshot() {
+    public void tumSayfaScreenshot() {
     }
 
     @Test
