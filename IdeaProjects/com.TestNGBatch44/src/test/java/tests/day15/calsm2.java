@@ -1,7 +1,13 @@
 package tests.day15;
 
+import com.github.javafaker.Faker;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utilities.TestBase;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -16,43 +22,83 @@ import java.nio.file.Paths;
 
 
     public class C02_FileExists {
-        @Test
-        public void test01(){
+        package tests.day14;
 
-            System.out.println(System.getProperty("user.home")); // C:\Users\Lenovo
+import com.github.javafaker.Faker;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import utilities.TestBase;
+
+        public class C02_Faker extends TestBase {
+
+            @Test
+            public void facebookKayitTesti() throws InterruptedException {
+
+                //"https://facebook.com"  Adresine gidin
+                driver.get("https://facebook.com");
+                Thread.sleep(1000);
+                driver.findElement(By.xpath("//button[text()='Alle Cookies gestatten']")).click();
+                //“create new account”  butonuna basin
+                driver.findElement(By.xpath("//a[@class='_42ft _4jy0 _6lti _4jy6 _4jy2 selected _51sy']")).click();
+                //“firstName” giris kutusuna bir isim yazin
+                WebElement isimKutusu= driver.findElement(By.xpath("//input[@name='firstname']"));
 
 
-            // masaustundeki Deneme klasorunun Path'ini istesem
-            // "C:\Users\Lenovo\Desktop\Deneme\selenium.xlsx"
+                Actions actions=new Actions(driver);
+                Faker faker=new Faker();
+                String email=faker.internet().emailAddress();
 
-            // Yani dinamik olarak masaustumdeki Deneme klasorunun path'ini yazmak istersem
+                actions.click(isimKutusu)
+                        .sendKeys(faker.name().name())
+                        //“surname” giris kutusuna bir soyisim yazin
+                        .sendKeys(Keys.TAB)
+                        .sendKeys(faker.name().lastName())
+                        //“email” giris kutusuna bir email yazin
+                        .sendKeys(Keys.TAB)
+                        .sendKeys(email)
+                        //“email” onay kutusuna emaili tekrar yazin
+                        .sendKeys(Keys.TAB)
+                        .sendKeys(email)
+                        //Bir sifre girin
+                        .sendKeys(Keys.TAB)
+                        .sendKeys(faker.internet().password())
+                        //Tarih icin ay secin
+                        .sendKeys(Keys.TAB)
+                        .sendKeys(Keys.TAB)
+                        .sendKeys("Jan")
 
-            String path= System.getProperty("user.home")+"\\Desktop\\Deneme\\selenium.xlsx";
+                        //Tarih icin gun secin
+                        .sendKeys(Keys.TAB)
+                        .sendKeys("15")
 
-            System.out.println(path);
+                        //Tarih icin yil secin
+                        .sendKeys(Keys.TAB)
+                        .sendKeys("1972")
+                        //Cinsiyeti secin
 
-            System.out.println("user.dir  : "+System.getProperty("user.dir"));
+                        .sendKeys(Keys.TAB)
+                        .sendKeys(Keys.TAB)
+                        .sendKeys(Keys.ARROW_RIGHT)
 
-            // Masaustunde Deneme klasoru icerisinde selenium.xlsx isminde bir dosya oldugunu test edin
-            // *********** masaustunde Deneme klasoru ve icinde selenium.xlsx olmazsa CALISMAZ********
-            // 1- once bu dosyaya ulasmak icin gerekli dinamik path olusturalim
+                        .perform();
 
-            String dosyaYolu= System.getProperty("user.home")+"\\Desktop\\Deneme\\selenium.xlsx";
+                //Isaretlediginiz cinsiyetin secili, diger cinsiyet kutusunun secili olmadigini test edin.
 
-            System.out.println(Files.exists(Paths.get(dosyaYolu)));
+                WebElement erkekSecimElementi=driver.findElement(By.xpath("//input[@value='2']"));
+                WebElement kadinSecimElementi=driver.findElement(By.xpath("//input[@value='1']"));
 
-            // projemizde pom.xml oldugunu test edin
-            //C:\Users\Lenovo\B44-QA-TR\06-Selenium\com.TestNGBatch44\pom.xml
+                Assert.assertTrue(erkekSecimElementi.isSelected());
+                Assert.assertFalse(kadinSecimElementi.isSelected());
 
-            System.out.println(System.getProperty("user.dir")); // projemin yolunu verir
-            //C:\Users\Lenovo\B44-QA-TR\06-Selenium\com.TestNGBatch44
 
-            String pomPath=System.getProperty("user.dir") + "\\pom.xml";
-
-            Assert.assertTrue(Files.exists(Paths.get(pomPath)));
+                Thread.sleep(10000);
+            }
 
 
 
         }
-    }
 }
